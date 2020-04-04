@@ -1,19 +1,15 @@
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { createSwitchNavigator ,createAppContainer } from 'react-navigation';
+import WelcomeScreen from './src/screens/WelcomeScreen';
 
-export default function App() {
-  return (
-    <View style={styles.container}>
-      <Text>descholar says hell! Welcome to the new world!</Text>
-    </View>
-  );
-}
+const navigator = createSwitchNavigator(
+  {
+    WelcomeScreen
+  }, {
+    initialRouteName: 'WelcomeScreen',
+    defaultNavigationOptions: {
+      title:'Phone History Store'
+    }
+  }
+);
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+export default createAppContainer(navigator);
